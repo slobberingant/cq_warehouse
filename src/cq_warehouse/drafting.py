@@ -614,6 +614,9 @@ class Draft:
             ]
         else:
             extension_tangent = object_path.tangentAt(0).cross(self._label_normal)
+            if project_line:
+                extension_tangent = Vector(
+                        [abs(x) for x in extension_tangent.toTuple()])
             dimension_plane = Plane(
                 object_path.positionAt(0),
                 xDir=extension_tangent,
